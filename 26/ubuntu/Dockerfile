@@ -1,5 +1,8 @@
 FROM ubuntu:22.04
 
+ENV TZ=Europe/Zurich
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # fix locales
 RUN apt-get update \
     && apt-get dist-upgrade \
