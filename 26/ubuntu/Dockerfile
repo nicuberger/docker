@@ -27,8 +27,9 @@ RUN apt-get update; \
         php-xml \
         php-imagick \
         php-zip
-
-    
+        
+RUN update-alternatives --set php /usr/bin/php8.1
+  
 # entrypoint.sh and cron.sh dependencies
 RUN set -ex; \
     \
