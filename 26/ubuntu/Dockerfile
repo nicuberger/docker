@@ -54,6 +54,7 @@ RUN set -ex; \
     \
     apt-get update; \
     apt-get install -y --no-install-recommends \
+        dpkg-dev \
         libcurl4-openssl-dev \
         libevent-dev \
         libfreetype6-dev \
