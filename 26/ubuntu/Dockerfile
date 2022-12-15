@@ -9,8 +9,8 @@ RUN apt-get update \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
     
 # install php
-RUN apt-get update \
-    && apt-get install -y --no-install-recomends \
+RUN apt-get update; \
+    apt-get install -y --no-install-recommends \
         libapache2-mod-php \
         php8.1 \
         php-gd \
