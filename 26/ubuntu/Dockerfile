@@ -3,16 +3,26 @@ FROM ubuntu:22.04
 # fix locales
 RUN apt-get update \
     && apt-get dist-upgrade \
-    && apt-get autoremove 
+    && apt-get autoremove \
     && apt-get install -y --no-install-recommends locales \
     && rm -rf /var/lib/apt/lists/* \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
     
 # install php
 RUN apt-get update \
-    && apt-get install -y --no-install-recomends libapache2-mod-php
-    && apt-get install -y --no-install-recommends php8.1 \
-    && apt-get install -y --no-install-recommends php-gd php-mysql php-curl php-mbstring php-intl php-gmp php-bcmath php-xml php-imagick php-zip
+    && apt-get install -y --no-install-recomends \
+        libapache2-mod-php \
+        php8.1 \
+        php-gd \
+        php-mysql \
+        php-curl \
+        php-mbstring \
+        php-intl \
+        php-gmp \
+        php-bcmath \
+        php-xml \
+        php-imagick \
+        php-zip
     
     
 # entrypoint.sh and cron.sh dependencies
