@@ -11,7 +11,7 @@ RUN apt-get update \
 # install php
 RUN apt-get update; \
     apt-get install -y --no-install-recommends \
-        libapache2-mod-php \
+        # libapache2-mod-php \
         php8.1 \
         php-gd \
         php-mysql \
