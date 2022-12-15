@@ -16,6 +16,7 @@ RUN apt-get update; \
     apt-get install -y --no-install-recommends \
         libapache2-mod-php \
         php8.1 \
+        php-fpm \
         php-gd \
         php-mysql \
         php-curl \
