@@ -32,8 +32,8 @@ RUN update-alternatives --set php /usr/bin/php8.1
 
 COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 
-RUN chmod 777 /usr/local/bin; \
-    chmod +x /usr/local/bin
+RUN chmod 777 /usr/local/bin/docker-php-ext-install; \
+    chmod +x /usr/local/bin/docker-php-ext-install
 
 RUN /usr/local/bin/docker-php-ext-install intl
   
