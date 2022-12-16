@@ -32,7 +32,7 @@ RUN update-alternatives --set php /usr/bin/php8.1
 
 COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 
-RUN /usr/local/bin# docker-php-ext-install intl
+RUN /usr/local/bin/ docker-php-ext-install intl
   
 # entrypoint.sh and cron.sh dependencies
 RUN set -ex; \
