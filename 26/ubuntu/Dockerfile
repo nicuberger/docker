@@ -36,6 +36,22 @@ RUN chmod 777 /usr/local/bin/docker-php-ext-install; \
     chmod +x /usr/local/bin/docker-php-ext-install
 
 RUN #!/usr/local/bin/docker-php-ext-install intl
+
+RUN docker-php-source extract \
+    && cd /usr/src/php \
+    && ./configure \
+        --with-config-file-scan-dir=/usr/local/etc/php/conf.d \
+        --with-config-file-path=/usr/local/etc/php \
+        --enable-fpm \
+        --with-fpm-user=www-data \
+        --with-fpm-group=www-data \
+        --enable-mysqlnd \
+        --with-pdo-mysql=mysqlnd \
+        --enable-mbstring \
+        --with-openssl \
+    && make \
+    && make install \
+    && docker-php-source delete
   
 # entrypoint.sh and cron.sh dependencies
 RUN set -ex; \
@@ -85,6 +101,7 @@ RUN set -ex; \
     docker-php-ext-install intl; \
     docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp; \
     docker-php-ext-configure ldap --with-libdir="lib/$debMultiarch"; \
+    
     docker-php-ext-install -j "$(nproc)" \
         bcmath \
         exif \
