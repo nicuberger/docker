@@ -29,6 +29,9 @@ RUN apt-get update; \
         php-zip
         
 RUN update-alternatives --set php /usr/bin/php8.1
+
+RUN docker run –rm -it php:8.1 bash \
+    /usr/local/bin# docker-php-ext-install intl
   
 # entrypoint.sh and cron.sh dependencies
 RUN set -ex; \
